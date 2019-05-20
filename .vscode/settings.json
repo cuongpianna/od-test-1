@@ -1,10 +1,13 @@
 {
     "cSpell.words": [
         "authlib",
+        "endblock",
+        "functools",
         "gunicorn",
         "jsonify",
         "oauth",
         "odtest",
+        "openid",
         "webapp"
     ]
 }
