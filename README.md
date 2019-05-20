@@ -1,37 +1,45 @@
-# A sample Python project
+# Auth0 and Flask Integration POC
 
-A sample project that exists as an aid to the [Python Packaging User
-Guide][packaging guide]'s [Tutorial on Packaging and Distributing
-Projects][distribution tutorial].
+This is a learning space for me separate form the official Auth0 [GitHub Flask project](https://github.com/auth0-samples/auth0-python-web-app)
 
-This project does not aim to cover best practices for Python project
-development as a whole. For example, it does not provide guidance or tool
-recommendations for version control, documentation, or testing.
+## Quick Start
 
-[The source for this project is available here][src].
+The basic steps as listed below will get the project cloned, built as started.
 
-Most of the configuration for a Python project is done in the `setup.py` file,
-an example of which is included in this project. You should edit this file
-accordingly to adapt this sample project to your needs.
+It assumes you have set some `environment` variables (see below) required for the integration.
 
-----
+Quick start commands:
 
-This is the README file for the project.
+    $ git clone https://github.com/nicc777/od-test-1.git
+    $ cd od-test-1
+    $ python3 -m venv venv
+    $ source venv/bin/activate
+    (venv) $ cd docker_conf/base/
+    (venv) $ ./build_docker_base.sh
+    (venv) $ cd ../webapp/
+    (venv) $ ./build_webapp.sh
+    ...set your environment variables (see below) ...
+    (venv) $ docker run -e DEBUG=$DEBUG \ 
+    -e DEBUG=$DEBUG \
+    -e AUTH0_CALLBACK_URL=$AUTH0_CALLBACK_URL \
+    -e AUTH0_CLIENT_ID=$AUTH0_CLIENT_ID \
+    -e AUTH0_CLIENT_SECRET=$AUTH0_CLIENT_SECRET \
+    -e AUTH0_DOMAIN=$AUTH0_DOMAIN \
+    -e AUTH0_BASE_URL=$AUTH0_BASE_URL \
+    -e AUTH0_AUDIENCE=$AUTH0_AUDIENCE \
+    --network container-net \
+    -p 127.0.0.1:4000:4000 \
+    --name auth0-flask-poc webapp-odtest1
 
-The file should use UTF-8 encoding and can be written using
-[reStructuredText][rst] or [markdown][md use] with the appropriate [key set][md
-use]. It will be used to generate the project webpage on PyPI and will be
-displayed as the project homepage on common code-hosting services, and should be
-written for that purpose.
+## Environment Variables
 
-Typical contents for this file would include an overview of the project, basic
-usage examples, etc. Generally, including the project changelog in here is not a
-good idea, although a simple “What's New” section for the most recent version
-may be appropriate.
+You can set the required environment variables with the following values:
 
-[packaging guide]: https://packaging.python.org
-[distribution tutorial]: https://packaging.python.org/tutorials/packaging-projects/
-[src]: https://github.com/pypa/sampleproject
-[rst]: http://docutils.sourceforge.net/rst.html
-[md]: https://tools.ietf.org/html/rfc7764#section-3.5 "CommonMark variant"
-[md use]: https://packaging.python.org/specifications/core-metadata/#description-content-type-optional
+    (venv) $ export DEBUG=1
+    (venv) $ export AUTH0_CALLBACK_URL=
+    (venv) $ export AUTH0_CLIENT_ID=
+    (venv) $ export AUTH0_CLIENT_SECRET=
+    (venv) $ export AUTH0_DOMAIN="localhost:4000"
+    (venv) $ export AUTH0_BASE_URL="https://${AUTH0_DOMAIN}"
+    (venv) $ export AUTH0_AUDIENCE="${AUTH0_BASE_URL}/userinfo"
+
