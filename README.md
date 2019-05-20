@@ -19,7 +19,8 @@ Quick start commands:
     (venv) $ cd ../webapp/
     (venv) $ ./build_webapp.sh
     ...set your environment variables (see below) ...
-    (venv) $ docker run -e DEBUG=$DEBUG \ 
+    (venv) $ docker container rm auth0-flask-poc
+    (venv) $ docker run -e DEBUG=$DEBUG \
     -e DEBUG=$DEBUG \
     -e AUTH0_CALLBACK_URL=$AUTH0_CALLBACK_URL \
     -e AUTH0_CLIENT_ID=$AUTH0_CLIENT_ID \
