@@ -37,12 +37,12 @@ To manually remove the docker after a running instance finishes:
 
 ## Environment Variables
 
-You can set the required environment variables with the following values:
+You can set the required environment variables with the following values for local testing:
 
     (venv) $ export DEBUG=1
-    (venv) $ export AUTH0_CALLBACK_URL=
-    (venv) $ export AUTH0_CLIENT_ID=
-    (venv) $ export AUTH0_CLIENT_SECRET=
+    (venv) $ export AUTH0_CALLBACK_URL="http://localhost:4000/callback"
+    (venv) $ export AUTH0_CLIENT_ID=...your_auth0_client_id...
+    (venv) $ export AUTH0_CLIENT_SECRET=...your_auth0_client_secret...
     (venv) $ export AUTH0_DOMAIN="localhost:4000"
     (venv) $ export AUTH0_BASE_URL="https://${AUTH0_DOMAIN}"
     (venv) $ export AUTH0_AUDIENCE="${AUTH0_BASE_URL}/userinfo"
