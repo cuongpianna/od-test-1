@@ -4,5 +4,9 @@
 
     <p>Welcome {{userinfo['name']}}</p>
     <pre>{{userinfo_pretty}}</pre>
+    <p>
+        </br></br>
+        <a href="{{ url_for('logout') }}">Logout</a>
+    </p>
 
 {% endblock %}
