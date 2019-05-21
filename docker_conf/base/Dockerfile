@@ -11,4 +11,5 @@ ENV AUTH0_CLIENT_SECRET not-set
 ENV AUTH0_DOMAIN not-set
 ENV AUTH0_BASE_URL not-set
 ENV AUTH0_AUDIENCE not-set
+ENV SECRET_KEY ThisMustBeChangedForProduction
 

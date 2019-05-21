@@ -1,5 +1,7 @@
 #!/bin/sh
 
+docker container rm auth0-flask-poc
+
 mkdir -p dist
 cd ../../
 python3 setup.py sdist

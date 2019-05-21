@@ -19,7 +19,6 @@ Quick start commands:
     (venv) $ cd ../webapp/
     (venv) $ ./build_webapp.sh
     ...set your environment variables (see below) ...
-    (venv) $ docker container rm auth0-flask-poc
     (venv) $ docker run -e DEBUG=$DEBUG \
     -e DEBUG=$DEBUG \
     -e AUTH0_CALLBACK_URL=$AUTH0_CALLBACK_URL \
@@ -31,6 +30,10 @@ Quick start commands:
     --network container-net \
     -p 127.0.0.1:4000:4000 \
     --name auth0-flask-poc webapp-odtest1
+
+To manually remove the docker after a running instance finishes:
+
+    (venv) $ docker container rm auth0-flask-poc
 
 ## Environment Variables
 

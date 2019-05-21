@@ -12,6 +12,7 @@ from six.moves.urllib.parse import urlencode
 
 
 app = Flask(__name__)
+app.secret_key = env.get('SECRET_KEY', 'YouHaveNotSetAProperSecret!')
 
 
 def get_debug_flag()->bool:
@@ -57,6 +58,7 @@ def home():
 @app.route('/callback')
 def callback_handling():
     # Handles response from token endpoint
+    print('CALLBACK processing')
     auth0.authorize_access_token()
     resp = auth0.get('userinfo')
     userinfo = resp.json()
@@ -75,6 +77,7 @@ def callback_handling():
 
 @app.route('/login')
 def login():
+    print('LOGIN processing')
     redirect_uri = env.get('AUTH0_CALLBACK_URL', 'no-value')
     audience = env.get('AUTH0_AUDIENCE', 'no-value')
     if DEBUG_FLAG:
